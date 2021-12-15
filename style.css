@@ -64,9 +64,7 @@ body {
     transition: transform .9s;
 }
 
-.score-panel {
-    color: aliceblue;
-}
+
 .carta:active {
     transform: scale(0.97);
     transition: transform .2s;

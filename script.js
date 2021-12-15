@@ -1,11 +1,10 @@
 const cartaf = document.querySelectorAll('.carta');
 let viradas = false;
-let lockBoard = false;
+let naoDescoberta = false;
 let primeiraCarta, segundaCarta;
 
-
 function virar() {
-    if (lockBoard) return;
+    if (naoDescoberta) return;
     if (this === primeiraCarta) return;
 
     this.classList.add('vira');
@@ -22,36 +21,37 @@ function virar() {
     checar();
 }
 
+const parabens = document.getElementById("parabensaba");
+
 
 function checar() {
     if (primeiraCarta.dataset.carta === segundaCarta.dataset.carta) {
-        disableCards();
+        desabilitar();
         return;
     }
 
     desvira();
 }
 
-function disableCards() {
+function desabilitar() {
     primeiraCarta.removeEventListener('click', virar);
     segundaCarta.removeEventListener('click', virar);
-
-    resetBoard();
+    resetaTab();
 }
 
 function desvira() {
-    lockBoard = true;
+    naoDescoberta = true;
 
     setTimeout(() => {
         primeiraCarta.classList.remove('vira');
         segundaCarta.classList.remove('vira');
 
-        resetBoard();
+        resetaTab();
     }, 1500);
 }
 
-function resetBoard() {
-    [hasFlippedCarta, lockBoard] = [false, false];
+function resetaTab() {
+    [viradas, naoDescoberta] = [false, false];
     [primeiraCarta, segundaCarta] = [null, null];
 }
 
