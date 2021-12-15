@@ -21,9 +21,6 @@ function virar() {
     checar();
 }
 
-const parabens = document.getElementById("parabensaba");
-
-
 function checar() {
     if (primeiraCarta.dataset.carta === segundaCarta.dataset.carta) {
         desabilitar();
