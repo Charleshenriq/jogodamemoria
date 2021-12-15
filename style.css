@@ -1,0 +1,92 @@
+html {
+    box-sizing: border-box;
+}
+  
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;    
+    font-family: "Coda", cursive;
+    justify-content: center;
+
+}
+
+h1{
+    color: aliceblue;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+body {
+    height: 100vh;
+    display: flex;
+    background-image: url(fundo.gif);
+    background-size: cover;
+    border: 2px solid rgb(235, 9, 243);
+    color: #000; text-shadow: 1px 1px 0 #fff;
+}
+
+    
+
+.cartas {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    align-items: center;
+    
+}
+
+.carta {
+    height: calc(33.333% - 40px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(68, 49, 49, 0.3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .9s;
+}
+
+.score-panel {
+    color: aliceblue;
+}
+.carta:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.frente,
+.tras {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(26, 200, 212);
+    backface-visibility: hidden;
+}
+
+.frente {
+    transform: rotateY(180deg);
+}
+
+.carta.vira {
+    transform: rotateY(180deg);
+}
